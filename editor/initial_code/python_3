@@ -1,11 +1,14 @@
-def checkio(a, b):
+def checkio(text):
     """
-        sums two passed arguments
+        find all IPs
     """
-    return None
+    return ["192.168.1.1"]
 
 #These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
-    assert checkio(3, 2) == 5
-    assert checkio(5, 7) == 12
-    print('Done')
+    assert checkio("192.168.1.1 and 10.0.0.1 or 127.0.0.1") == \
+        ["192.168.1.1", "10.0.0.1", "127.0.0.1"], "All correct"
+    assert checkio("10.0.0.1.1 but 127.0.0.256 1.1.1.1") == \
+        ["1.1.1.1"], "Only 1.1.1.1"
+    assert checkio("167.11.0.0 1.2.3.255 192,168,1,1") == \
+        ["167.11.0.0", "1.2.3.255"], "0 and 255"
